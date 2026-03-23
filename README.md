@@ -52,7 +52,8 @@ python train.py \
   --use_curriculum \
   --gpu_ids 0
 ```
-###🧪 Testing
+
+### 🧪 Testing
 After training, you can test the model's performance on the paired dataset using the following command:
 ```bash
 python test.py \
@@ -64,5 +65,22 @@ python test.py \
   --preprocess none \
   --dataroot ./datasets/pair_s2a
 ```
+
+## 📜 Citation
+If you use this code for your research, please cite the original paper:
+```text
+@article{yu2025semisketch,
+  title={SemiSketch: An ancient mural sketch extraction network based on reference prior and gradient frequency compensation},
+  author={Yu, Zhe and Wang, Jun and Qu, Shuyi and Zhang, Qunxi and Ma, Yirong and Peng, Shengling and Peng, Jinye},
+  journal={Pattern Recognition},
+  pages={112146},
+  year={2025},
+  publisher={Elsevier}
+}
+```
+
+
+
+
 
 
