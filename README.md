@@ -32,3 +32,37 @@ We use Visdom to monitor the training process. You need to start the Visdom serv
 ```bash
 python -m visdom.server
 ```
+If you encounter any issues with Visdom configuration, please refer to this comprehensive guide:👉 [Visdom 配置文件参考教程 (CSDN)](https://blog.csdn.net/loveinfall_wyc/article/details/123006831)
+
+## Train & Test
+Once your dataset, pre-trained models, and Visdom server are ready, you can start running the model on your server!
+
+### 🏃‍♂️ Training
+Run the following command to start training the `semi_cut` model with your unpaired dataset:
+```bash
+python train.py \
+  --name mural \
+  --CUT_mode CUT \
+  --model semi_cut \
+  --dataroot ./datasets/unpaired_s2a \
+  --checkpoints_dir ./pretrained_models \
+  --dce_idt \
+  --lambda_VGG -1 \
+  --lambda_NCE_s 0.05 \
+  --use_curriculum \
+  --gpu_ids 0
+```
+###🧪 Testing
+After training, you can test the model's performance on the paired dataset using the following command:
+```bash
+python test.py \
+  --name mural \
+  --model cut \
+  --direction AtoB \
+  --CUT_mode CUT \
+  --phase test \
+  --preprocess none \
+  --dataroot ./datasets/pair_s2a
+```
+
+
